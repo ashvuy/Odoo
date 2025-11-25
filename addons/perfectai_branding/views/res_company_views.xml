@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Extend Company Form View with PerfectAI Branding Settings -->
+    <record id="view_company_form_perfectai_branding" model="ir.ui.view">
+        <field name="name">res.company.form.perfectai.branding</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form"/>
+        <field name="arch" type="xml">
+            <!-- Add PerfectAI Branding page to company settings -->
+            <xpath expr="//notebook" position="inside">
+                <page string="PerfectAI Branding" name="perfectai_branding">
+                    <group>
+                        <group string="White-Label Settings">
+                            <field name="perfectai_enable_white_label"/>
+                            <field name="perfectai_custom_app_name"
+                                   attrs="{'invisible': [('perfectai_enable_white_label', '=', False)]}"/>
+                            <field name="perfectai_custom_tagline"
+                                   attrs="{'invisible': [('perfectai_enable_white_label', '=', False)]}"/>
+                            <field name="perfectai_hide_odoo_branding"/>
+                        </group>
+                        <group string="Color Scheme">
+                            <field name="perfectai_primary_brand_color" widget="color"
+                                   attrs="{'invisible': [('perfectai_enable_white_label', '=', False)]}"/>
+                            <field name="perfectai_secondary_brand_color" widget="color"
+                                   attrs="{'invisible': [('perfectai_enable_white_label', '=', False)]}"/>
+                            <field name="perfectai_backend_header_color" widget="color"
+                                   attrs="{'invisible': [('perfectai_enable_white_label', '=', False)]}"/>
+                        </group>
+                    </group>
+                    <group string="Custom Login Message"
+                           attrs="{'invisible': [('perfectai_enable_white_label', '=', False)]}">
+                        <field name="perfectai_login_message" widget="html" nolabel="1"/>
+                    </group>
+                    <group string="Advanced"
+                           attrs="{'invisible': [('perfectai_enable_white_label', '=', False)]}">
+                        <field name="perfectai_custom_favicon"/>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

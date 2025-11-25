@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PerfectAI - Multi-Tenant White-Labeling</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #875A7B;
+        }
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #875A7B 0%, #00A09D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-size: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            margin: 5px;
+            background: #00A09D;
+            color: white;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .feature {
+            padding: 20px;
+            border-left: 4px solid #875A7B;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .feature h3 {
+            margin: 10px 0;
+            color: #875A7B;
+        }
+        .cta-section {
+            background: linear-gradient(135deg, #875A7B 0%, #00A09D 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #875A7B;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        .screenshot {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        ul li:before {
+            content: "✓ ";
+            color: #00A09D;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .compliance {
+            background: #fffbea;
+            border: 2px solid #f59e0b;
+            border-radius: 5px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .tech-stack {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .tech-item {
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">PerfectAI</div>
+            <div class="tagline">Multi-Tenant White-Labeling for Odoo</div>
+            <div style="margin-top: 15px;">
+                <span class="badge">v1.0.0</span>
+                <span class="badge">LGPLv3</span>
+                <span class="badge">Odoo 16+</span>
+            </div>
+        </div>
+
+        <section>
+            <h2>Transform Odoo Into Your Own Branded Platform</h2>
+            <p>
+                PerfectAI Branding is the complete solution for creating white-labeled,
+                multi-tenant SaaS offerings based on Odoo ERP. Perfect for hosting providers,
+                implementation partners, and SaaS entrepreneurs who want to offer Odoo under
+                their own brand.
+            </p>
+        </section>
+
+        <section class="feature-grid">
+            <div class="feature">
+                <div class="feature-icon">🎨</div>
+                <h3>Visual Branding</h3>
+                <p>Custom logos, colors, favicons, and styling per tenant. Make it truly yours.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🏢</div>
+                <h3>Multi-Tenant</h3>
+                <p>Isolated databases per tenant with complete branding independence.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Easy Setup</h3>
+                <p>Configure branding in minutes through intuitive interface. No coding required.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔒</div>
+                <h3>License Compliant</h3>
+                <p>Fully LGPLv3 compliant with proper Odoo attribution maintained.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💼</div>
+                <h3>Professional</h3>
+                <p>Hide "Powered by Odoo" from frontend while maintaining legal compliance.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🚀</div>
+                <h3>Production Ready</h3>
+                <p>Battle-tested with performance optimization and security best practices.</p>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Ready to Launch Your Branded ERP?</h2>
+            <p>Start creating white-labeled Odoo instances in minutes</p>
+            <a href="#" class="cta-button">Get Started</a>
+            <a href="https://github.com/perfectai/odoo-branding" class="cta-button">View on GitHub</a>
+        </div>
+
+        <section>
+            <h2>Key Features</h2>
+            <ul>
+                <li>Per-tenant logo and favicon upload</li>
+                <li>Customizable color schemes (primary, secondary, accent)</li>
+                <li>Custom application names and taglines</li>
+                <li>Personalized login page messages</li>
+                <li>Dynamic header styling</li>
+                <li>Custom CSS injection for advanced branding</li>
+                <li>Support contact information per tenant</li>
+                <li>Domain-based routing support</li>
+                <li>Comprehensive branding preview</li>
+                <li>One-click branding application</li>
+                <li>Backend and frontend theming</li>
+                <li>Mobile-responsive design</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Perfect For</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h3>SaaS Providers</h3>
+                    <p>Offer white-labeled ERP to multiple clients under your brand</p>
+                </div>
+                <div class="feature">
+                    <h3>Hosting Companies</h3>
+                    <p>Provide branded Odoo hosting for your customers</p>
+                </div>
+                <div class="feature">
+                    <h3>Implementation Partners</h3>
+                    <p>Deliver Odoo solutions with your company's branding</p>
+                </div>
+                <div class="feature">
+                    <h3>Resellers</h3>
+                    <p>Resell Odoo as your own product with custom branding</p>
+                </div>
+            </ul>
+        </section>
+
+        <section class="compliance">
+            <h3>⚖️ License Compliance</h3>
+            <p>
+                <strong>Important:</strong> This module is fully compliant with Odoo's LGPLv3 license.
+                While you can hide "Powered by Odoo" from the frontend footer, the attribution
+                is maintained in the About/Settings section as required by the license.
+            </p>
+            <p>
+                You're free to:
+            </p>
+            <ul>
+                <li>Use commercially and charge for your services</li>
+                <li>Modify and customize the branding</li>
+                <li>Brand it as your own product</li>
+                <li>Create proprietary extensions</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>How It Works</h2>
+            <ol style="list-style: decimal; padding-left: 20px;">
+                <li><strong>Install Module:</strong> Add PerfectAI Branding to your Odoo instance</li>
+                <li><strong>Create Tenant Database:</strong> Set up a database for each client</li>
+                <li><strong>Configure Branding:</strong> Upload logos, set colors, customize text</li>
+                <li><strong>Apply Settings:</strong> One-click apply branding to tenant</li>
+                <li><strong>Deploy:</strong> Your clients see fully branded interface</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Architecture</h2>
+            <p>
+                PerfectAI uses Odoo's native multi-database architecture:
+            </p>
+            <ul>
+                <li><strong>Database-per-Tenant:</strong> Each client has isolated database</li>
+                <li><strong>Independent Branding:</strong> Each database has unique branding</li>
+                <li><strong>Secure Isolation:</strong> Complete data separation between tenants</li>
+                <li><strong>Scalable:</strong> Add unlimited tenants without performance impact</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Technical Stack</h2>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <strong>Odoo 16+</strong><br>
+                    <small>Backend Framework</small>
+                </div>
+                <div class="tech-item">
+                    <strong>Python 3.8+</strong><br>
+                    <small>Core Language</small>
+                </div>
+                <div class="tech-item">
+                    <strong>PostgreSQL</strong><br>
+                    <small>Database</small>
+                </div>
+                <div class="tech-item">
+                    <strong>Bootstrap 5</strong><br>
+                    <small>UI Framework</small>
+                </div>
+                <div class="tech-item">
+                    <strong>SCSS</strong><br>
+                    <small>Styling</small>
+                </div>
+                <div class="tech-item">
+                    <strong>Owl JS</strong><br>
+                    <small>Frontend Framework</small>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Documentation</h2>
+            <ul>
+                <li><a href="README.md">README - Quick Start Guide</a></li>
+                <li><a href="DEPLOYMENT.md">DEPLOYMENT - Production Setup Guide</a></li>
+                <li>API Documentation - See code docstrings</li>
+                <li>Video Tutorials - Coming soon</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Support & Community</h2>
+            <p>Get help and contribute:</p>
+            <ul>
+                <li>📧 Email: support@perfectai.com</li>
+                <li>🐛 Report Issues: GitHub Issues</li>
+                <li>💬 Community Forum: Odoo Community</li>
+                <li>📚 Documentation: Full docs included</li>
+            </ul>
+        </section>
+
+        <section style="text-align: center; margin-top: 40px; padding-top: 40px; border-top: 2px solid #eee;">
+            <p><strong>PerfectAI Branding</strong> - Make Odoo Yours</p>
+            <p style="color: #666; font-size: 14px;">
+                Copyright © 2025 PerfectAI | Licensed under LGPLv3<br>
+                Odoo is a trademark of Odoo S.A.
+            </p>
+        </section>
+    </div>
+</body>
+</html>

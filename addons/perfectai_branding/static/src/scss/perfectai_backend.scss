@@ -1,0 +1,93 @@
+// PerfectAI Backend Styling
+// Dynamic branding for backend interface
+
+// Apply custom header color from company settings
+.o_main_navbar {
+    // This will be overridden by JS with company-specific color
+    background-color: var(--perfectai-header-bg, #875A7B) !important;
+
+    .o_menu_brand {
+        color: var(--perfectai-header-text, #FFFFFF) !important;
+    }
+
+    .o_menu_sections .dropdown > a,
+    .o_menu_systray > .dropdown > a {
+        color: var(--perfectai-header-text, #FFFFFF) !important;
+
+        &:hover, &:focus {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+    }
+}
+
+// Custom primary color
+.btn-primary,
+.o_form_button_save,
+.o_form_button_create {
+    background-color: var(--perfectai-primary, #875A7B) !important;
+    border-color: var(--perfectai-primary, #875A7B) !important;
+
+    &:hover, &:focus {
+        background-color: var(--perfectai-primary-dark, #6d4862) !important;
+        border-color: var(--perfectai-primary-dark, #6d4862) !important;
+    }
+}
+
+// Links and highlights
+a, .btn-link {
+    color: var(--perfectai-primary, #875A7B) !important;
+
+    &:hover {
+        color: var(--perfectai-primary-dark, #6d4862) !important;
+    }
+}
+
+// Accent color for special elements
+.badge-primary,
+.label-primary {
+    background-color: var(--perfectai-accent, #00A09D) !important;
+}
+
+// Custom scrollbar (optional, for branding)
+::-webkit-scrollbar-thumb {
+    background-color: var(--perfectai-primary, #875A7B);
+}
+
+// Hide Odoo branding in backend menus if configured
+.o_menu_brand .o_menu_brand_odoo {
+    .perfectai-hide-odoo & {
+        display: none;
+    }
+}
+
+// PerfectAI branded loading screen
+.o_loading {
+    .o_spinner {
+        div {
+            border-color: var(--perfectai-primary, #875A7B) transparent transparent transparent !important;
+        }
+    }
+}
+
+// Form view styling
+.o_form_view {
+    .o_form_sheet {
+        .o_form_statusbar {
+            background-color: var(--perfectai-secondary, #8F8F8F);
+        }
+    }
+}
+
+// Kanban view cards
+.o_kanban_view .o_kanban_record {
+    &:hover {
+        box-shadow: 0 0 10px var(--perfectai-primary, #875A7B);
+    }
+}
+
+// Custom notification styling
+.o_notification {
+    &.o_notification_info {
+        border-left-color: var(--perfectai-primary, #875A7B) !important;
+    }
+}

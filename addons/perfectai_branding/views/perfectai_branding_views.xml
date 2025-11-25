@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree View -->
+    <record id="view_perfectai_tenant_branding_tree" model="ir.ui.view">
+        <field name="name">perfectai.tenant.branding.tree</field>
+        <field name="model">perfectai.tenant.branding</field>
+        <field name="arch" type="xml">
+            <tree string="Tenant Branding Configurations">
+                <field name="name"/>
+                <field name="company_id"/>
+                <field name="application_name"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_perfectai_tenant_branding_form" model="ir.ui.view">
+        <field name="name">perfectai.tenant.branding.form</field>
+        <field name="model">perfectai.tenant.branding</field>
+        <field name="arch" type="xml">
+            <form string="Tenant Branding Configuration">
+                <header>
+                    <button name="action_apply_branding"
+                            string="Apply to Company"
+                            type="object"
+                            class="oe_highlight"
+                            help="Apply this branding configuration to the selected company"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                                attrs="{'invisible': [('active', '=', True)]}"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="company_id"/>
+                            <field name="active"/>
+                        </group>
+                        <group>
+                            <field name="application_name"/>
+                            <field name="tagline"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <!-- Visual Branding -->
+                        <page string="Visual Branding" name="visual">
+                            <group>
+                                <group string="Logos &amp; Icons">
+                                    <field name="custom_logo" widget="image" class="oe_avatar"/>
+                                    <field name="custom_logo_filename" invisible="1"/>
+                                    <field name="favicon" widget="image"/>
+                                    <field name="favicon_filename" invisible="1"/>
+                                </group>
+                                <group string="Color Scheme">
+                                    <field name="primary_color" widget="color"/>
+                                    <field name="secondary_color" widget="color"/>
+                                    <field name="accent_color" widget="color"/>
+                                    <field name="color_preview" nolabel="1"/>
+                                </group>
+                            </group>
+                            <group>
+                                <group string="Navigation Header">
+                                    <field name="header_background_color" widget="color"/>
+                                    <field name="header_text_color" widget="color"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Content & Messages -->
+                        <page string="Content" name="content">
+                            <group string="Welcome Message">
+                                <field name="welcome_message" widget="html" nolabel="1"/>
+                            </group>
+                            <group string="Footer">
+                                <field name="show_custom_footer"/>
+                                <field name="footer_text" widget="html" nolabel="1"
+                                       attrs="{'invisible': [('show_custom_footer', '=', False)]}"/>
+                            </group>
+                        </page>
+
+                        <!-- Features -->
+                        <page string="Features" name="features">
+                            <group>
+                                <group string="Branding Options">
+                                    <field name="hide_odoo_branding"/>
+                                    <label for="hide_odoo_branding"/>
+                                    <div class="text-muted">
+                                        "Powered by Odoo" will be kept in the About section for LGPLv3 compliance
+                                    </div>
+                                </group>
+                                <group string="Support Information">
+                                    <field name="support_email"/>
+                                    <field name="support_phone"/>
+                                    <field name="support_url" widget="url"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Advanced -->
+                        <page string="Advanced" name="advanced">
+                            <group>
+                                <field name="enable_custom_css"/>
+                            </group>
+                            <group string="Custom CSS"
+                                   attrs="{'invisible': [('enable_custom_css', '=', False)]}">
+                                <div class="alert alert-warning">
+                                    <strong>Warning:</strong> Custom CSS can affect the entire application.
+                                    Test thoroughly before deploying to production.
+                                </div>
+                                <field name="custom_css" widget="ace" options="{'mode': 'css'}" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_perfectai_tenant_branding" model="ir.actions.act_window">
+        <field name="name">Tenant Branding</field>
+        <field name="res_model">perfectai.tenant.branding</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first tenant branding configuration
+            </p>
+            <p>
+                Configure custom branding for each tenant/company in your multi-tenant deployment.
+                Set logos, colors, and messaging to match each client's brand identity.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_perfectai_branding_root"
+              name="PerfectAI"
+              sequence="100"
+              web_icon="perfectai_branding,static/description/icon.png"/>
+
+    <menuitem id="menu_perfectai_branding_config"
+              name="Configuration"
+              parent="menu_perfectai_branding_root"
+              sequence="10"/>
+
+    <menuitem id="menu_perfectai_tenant_branding"
+              name="Tenant Branding"
+              parent="menu_perfectai_branding_config"
+              action="action_perfectai_tenant_branding"
+              sequence="10"/>
+</odoo>

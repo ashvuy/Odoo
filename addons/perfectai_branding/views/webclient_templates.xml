@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Override Login Layout to hide "Powered by Odoo" -->
+    <template id="perfectai_login_layout" inherit_id="web.login_layout" name="PerfectAI Login Layout">
+        <!-- Replace the "Powered by Odoo" link in login footer -->
+        <xpath expr="//div[@class='text-center small mt-4 pt-3 border-top']//a[@href='https://www.odoo.com?utm_source=db&amp;utm_medium=auth']" position="replace">
+            <t t-if="request.env.company.perfectai_hide_odoo_branding">
+                <!-- Hide Odoo branding if enabled -->
+                <span></span>
+            </t>
+            <t t-else="">
+                <!-- Keep original Odoo branding -->
+                <a href="https://www.odoo.com?utm_source=db&amp;utm_medium=auth" target="_blank">Powered by <span>Odoo</span></a>
+            </t>
+        </xpath>
+
+        <!-- Update page title with custom app name -->
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or request.env.company.perfectai_custom_app_name or 'PerfectAI'"/>
+        </xpath>
+
+        <!-- Add custom login message if configured -->
+        <xpath expr="//form[@class='oe_login_form']" position="before">
+            <t t-if="request.env.company.perfectai_login_message">
+                <div class="alert alert-info">
+                    <t t-out="request.env.company.perfectai_login_message"/>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Override Frontend Layout to hide "Powered by Odoo" in footer -->
+    <template id="perfectai_frontend_layout" inherit_id="web.frontend_layout" name="PerfectAI Frontend Layout">
+        <!-- Update page title -->
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or request.env.company.perfectai_custom_app_name or 'PerfectAI'"/>
+        </xpath>
+
+        <!-- Hide or customize brand promotion in footer -->
+        <xpath expr="//div[@class='col-sm text-center text-sm-end']" position="replace">
+            <div class="col-sm text-center text-sm-end">
+                <t t-if="not request.env.company.perfectai_hide_odoo_branding">
+                    <t t-call="web.brand_promotion"/>
+                </t>
+                <t t-else="">
+                    <!-- Show custom tagline or nothing -->
+                    <t t-if="request.env.company.perfectai_custom_tagline">
+                        <span class="text-muted" t-esc="request.env.company.perfectai_custom_tagline"/>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+    <!-- Override Web Layout for custom branding -->
+    <template id="perfectai_web_layout" inherit_id="web.layout" name="PerfectAI Web Layout">
+        <xpath expr="//title" position="replace">
+            <title t-esc="title or request.env.company.perfectai_custom_app_name or 'PerfectAI'"/>
+        </xpath>
+
+        <!-- Add custom favicon if configured -->
+        <xpath expr="//link[@rel='shortcut icon']" position="replace">
+            <t t-if="request.env.company.perfectai_custom_favicon">
+                <link type="image/x-icon" rel="shortcut icon" t-att-href="'/web/image/res.company/%s/perfectai_custom_favicon' % request.env.company.id"/>
+            </t>
+            <t t-else="">
+                <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/static/img/favicon.ico'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <!-- Create About/Credits template with Odoo attribution (for compliance) -->
+    <template id="perfectai_about_page" name="PerfectAI About">
+        <t t-call="web.frontend_layout">
+            <div class="container mt-5 mb-5">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h3 class="mb-0">About <t t-esc="request.env.company.perfectai_custom_app_name or 'PerfectAI'"/></h3>
+                            </div>
+                            <div class="card-body">
+                                <h4>Application Information</h4>
+                                <table class="table">
+                                    <tr>
+                                        <th>Application Name:</th>
+                                        <td t-esc="request.env.company.perfectai_custom_app_name or 'PerfectAI'"/>
+                                    </tr>
+                                    <tr>
+                                        <th>Company:</th>
+                                        <td t-esc="request.env.company.name"/>
+                                    </tr>
+                                    <tr t-if="request.env.company.perfectai_custom_tagline">
+                                        <th>Tagline:</th>
+                                        <td t-esc="request.env.company.perfectai_custom_tagline"/>
+                                    </tr>
+                                </table>
+
+                                <hr class="my-4"/>
+
+                                <h4>Powered By</h4>
+                                <div class="alert alert-light border">
+                                    <p class="mb-2">
+                                        This application is powered by
+                                        <a href="https://www.odoo.com" target="_blank" class="font-weight-bold">Odoo</a>,
+                                        a suite of open source business apps.
+                                    </p>
+                                    <p class="mb-0">
+                                        <img src="/web/static/img/odoo_logo_tiny.png" alt="Odoo" style="height: 20px; vertical-align: middle;"/>
+                                        <small class="text-muted ml-2">
+                                            Licensed under LGPLv3 - Learn more at
+                                            <a href="https://www.odoo.com/page/open-source" target="_blank">odoo.com/open-source</a>
+                                        </small>
+                                    </p>
+                                </div>
+
+                                <h4 class="mt-4">Open Source License</h4>
+                                <p>
+                                    The core system is licensed under the
+                                    <a href="https://www.gnu.org/licenses/lgpl-3.0.html" target="_blank">
+                                        GNU Lesser General Public License v3.0
+                                    </a>
+                                    (LGPLv3). This ensures freedom to use, modify, and distribute the software
+                                    while requiring attribution to the original authors.
+                                </p>
+
+                                <div class="mt-4 text-center">
+                                    <p class="text-muted">
+                                        <small>
+                                            Copyright © <t t-esc="datetime.datetime.now().year"/> <t t-esc="request.env.company.name"/>.
+                                            Odoo is a trademark of Odoo S.A.
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

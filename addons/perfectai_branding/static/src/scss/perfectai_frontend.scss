@@ -1,0 +1,183 @@
+// PerfectAI Frontend Styling
+// Dynamic branding for frontend/portal interface
+
+// Apply custom colors
+:root {
+    --perfectai-primary: #875A7B;
+    --perfectai-secondary: #8F8F8F;
+    --perfectai-accent: #00A09D;
+    --perfectai-primary-dark: #6d4862;
+}
+
+// Primary buttons and CTAs
+.btn-primary {
+    background-color: var(--perfectai-primary) !important;
+    border-color: var(--perfectai-primary) !important;
+
+    &:hover, &:focus {
+        background-color: var(--perfectai-primary-dark) !important;
+        border-color: var(--perfectai-primary-dark) !important;
+    }
+}
+
+// Links
+a {
+    color: var(--perfectai-primary);
+
+    &:hover {
+        color: var(--perfectai-primary-dark);
+    }
+}
+
+// Login page styling
+.o_database_list {
+    .card-body {
+        .border-bottom {
+            border-color: var(--perfectai-secondary) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--perfectai-primary) !important;
+            border-color: var(--perfectai-primary) !important;
+        }
+    }
+}
+
+// Portal navigation
+.o_portal_navbar {
+    background-color: var(--perfectai-primary) !important;
+
+    .navbar-nav .nav-link {
+        color: #FFFFFF !important;
+
+        &:hover, &.active {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+    }
+}
+
+// Footer customization
+.o_footer {
+    .o_footer_copyright {
+        border-top-color: var(--perfectai-secondary);
+    }
+}
+
+// Hide Odoo branding if configured
+body.perfectai-hide-odoo-branding {
+    .o_brand_promotion {
+        display: none !important;
+    }
+
+    // Keep "Manage Databases" but hide Odoo link
+    .text-center.small.mt-4.pt-3.border-top {
+        a[href*="odoo.com"] {
+            display: none !important;
+        }
+    }
+}
+
+// Custom form styling
+.o_portal_form {
+    .form-control:focus {
+        border-color: var(--perfectai-primary);
+        box-shadow: 0 0 0 0.2rem rgba(135, 90, 123, 0.25);
+    }
+
+    .btn-primary {
+        background-color: var(--perfectai-primary);
+        border-color: var(--perfectai-primary);
+    }
+}
+
+// Cards and panels
+.card {
+    border-color: var(--perfectai-secondary);
+
+    .card-header {
+        background-color: var(--perfectai-secondary);
+        border-bottom-color: var(--perfectai-secondary);
+    }
+}
+
+// Badges
+.badge-primary {
+    background-color: var(--perfectai-accent) !important;
+}
+
+// Progress bars
+.progress-bar {
+    background-color: var(--perfectai-primary) !important;
+}
+
+// Custom page header
+.o_portal_page_header {
+    background: linear-gradient(135deg, var(--perfectai-primary) 0%, var(--perfectai-primary-dark) 100%);
+    color: #FFFFFF;
+}
+
+// Alerts
+.alert-primary {
+    background-color: rgba(135, 90, 123, 0.1);
+    border-color: var(--perfectai-primary);
+    color: var(--perfectai-primary-dark);
+}
+
+// Pagination
+.pagination {
+    .page-item.active .page-link {
+        background-color: var(--perfectai-primary);
+        border-color: var(--perfectai-primary);
+    }
+
+    .page-link {
+        color: var(--perfectai-primary);
+
+        &:hover {
+            color: var(--perfectai-primary-dark);
+        }
+    }
+}
+
+// Tables
+.table-primary {
+    background-color: rgba(135, 90, 123, 0.1);
+}
+
+// Dropdown menus
+.dropdown-menu {
+    .dropdown-item:hover,
+    .dropdown-item:focus {
+        background-color: rgba(135, 90, 123, 0.1);
+        color: var(--perfectai-primary);
+    }
+}
+
+// Login form enhancements
+.oe_login_form {
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        &:focus {
+            border-color: var(--perfectai-primary);
+            box-shadow: 0 0 0 0.2rem rgba(135, 90, 123, 0.25);
+        }
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .o_portal_navbar {
+        .navbar-brand {
+            max-width: 150px;
+        }
+    }
+}

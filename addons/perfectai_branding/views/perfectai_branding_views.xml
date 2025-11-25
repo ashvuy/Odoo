@@ -138,8 +138,7 @@
     <!-- Menu -->
     <menuitem id="menu_perfectai_branding_root"
               name="PerfectAI"
-              sequence="100"
-              web_icon="perfectai_branding,static/description/icon.png"/>
+              sequence="100"/>
 
     <menuitem id="menu_perfectai_branding_config"
               name="Configuration"
